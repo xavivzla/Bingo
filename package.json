@@ -6,7 +6,8 @@
   "author": "xavi <xavivzla.g@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.17.1"
