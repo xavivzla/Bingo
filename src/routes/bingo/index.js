@@ -21,7 +21,9 @@ Route.get("/card", (req, res) => {
             cardId: idGenerator
         }
         bingoCards.push(bingoGenerate)
-        res.json(bingoGenerate)
+        res.json({
+            data: bingoGenerate
+        })
     } catch (e) {
         res.json({
         error: e
@@ -58,7 +60,9 @@ Route.post("/checking", (req, res) => {
         const { body: { cardId } = {} } = req
         const { card = [] } = bingoCards.find((card) => card.cardId === cardId) || {}
         const result = verifyCard(bingoCallNums, card)
-        res.json(result)
+        res.json({
+            data: result
+        })
     } catch (e) {
         res.json({
             error: e
@@ -69,7 +73,9 @@ Route.post("/checking", (req, res) => {
 Route.get("/checkings", (req, res) => {
     try {
         const result = verifyAllCards(bingoCallNums, bingoCards)
-        res.json(result)
+        res.json({
+            data: result
+        })
     } catch (e) {
         res.json({
             error: e
